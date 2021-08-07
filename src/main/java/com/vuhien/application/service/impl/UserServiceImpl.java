@@ -81,7 +81,7 @@ public class UserServiceImpl implements UserService {
         user.setRoles(roles);
         userRepository.save(user);
         String token = verificationTokenService.createVerificationToken(user);
-        String link = "http://localhost:8080/api/users/confirm?token=" + token;
+        String link = "https://music-vh.herokuapp.com/api/users/confirm?token=" + token;
         emailSenderService.sendEmail(registerRequest.getEmail(), registerRequest.getFullName(), link);
         return user;
     }
